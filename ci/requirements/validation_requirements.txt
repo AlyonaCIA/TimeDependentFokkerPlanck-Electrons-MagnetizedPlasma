@@ -1,0 +1,10 @@
+# Fortran tools
+fprettify~=0.3.6
+fortran-linter  
+
+# Python tools for auxiliary scripts
+isort~=5.13.2
+flake8~=7.0.0
+pytest~=8.2.0
+pytest-mock~=3.14.0
+requests-mock~=1.12.1

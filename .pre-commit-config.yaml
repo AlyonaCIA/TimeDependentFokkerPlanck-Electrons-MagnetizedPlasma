@@ -1,0 +1,32 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+
+  - repo: https://github.com/PyCQA/docformatter
+    rev: v1.7.1
+    hooks:
+      - id: docformatter
+        args: [--in-place, --wrap-summaries, "88", --wrap-descriptions, "88"]
+
+  - repo: local
+    hooks:
+      - id: fortran-fprettify
+        name: Fortran code formatter (fprettify)
+        entry: fprettify
+        language: system
+        types: [fortran]
+        files: \.(f90|f95|f03|f08)$
+        args: [--silent]
+
+      - id: fortran-linter
+        name: Fortran linter
+        entry: fortran-linter
+        language: system
+        types: [fortran]
+        files: \.(f90|f95|f03|f08)$
+        args: []
