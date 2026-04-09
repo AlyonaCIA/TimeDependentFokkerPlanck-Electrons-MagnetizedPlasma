@@ -1,0 +1,43 @@
+[project]
+name = "tdfp-electrons"
+version = "0.1.0"
+description = "Time-Dependent Fokker-Planck solver for electrons in magnetized plasma"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.24",
+    "matplotlib>=3.7",
+    "seaborn>=0.13",
+    "tqdm>=4.64",
+]
+
+[project.optional-dependencies]
+astro = [
+    "astropy>=5.1",
+    "sunpy>=4.0",
+]
+dev = [
+    "ruff>=0.4",
+    "pre-commit>=3.5",
+    "mypy>=1.10",
+]
+
+[project.scripts]
+tdfp-plot = "scripts.python.tdfp_plots:_cli_main"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 99
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["tdfp_reader", "tdfp_plots"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
