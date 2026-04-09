@@ -1,0 +1,29 @@
+FC=f90
+FLAGS = -N80 -c -O3
+LDFLAGS = 
+.SUFFIXES: .o .f
+
+
+
+EXEC1=fkrplk.x
+INCLUDEF=fkrplk_par.h
+
+
+OBJECTS= main_par.o\
+        init_par.o\
+        inject_par.o\
+        bfield_par.o\
+        dands_par.o\
+        cntridag_par.o\
+        tauup_par.o\
+        bcup_par.o\
+        eup_par.o\
+        muup_par.o 
+.f.o:
+        $(FC) $(FLAGS) $<
+
+
+
+$(EXEC1): $(OBJECTS)
+        $(FC) -o $(EXEC1) $(OBJECTS) $(LDFLAGS)
+$(OBJECTS): $(INCLUDEF)
