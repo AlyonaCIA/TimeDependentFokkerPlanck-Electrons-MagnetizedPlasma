@@ -186,8 +186,14 @@ def plot_lp88_contours(
     with np.errstate(divide="ignore", invalid="ignore"):
         log_phi = np.log10(np.clip(phi, 1e-30, None))
 
-    vmin = float(np.nanmin(log_phi[np.isfinite(log_phi)]))
-    vmax = float(np.nanmax(log_phi[np.isfinite(log_phi)]))
+    finite_vals = log_phi[np.isfinite(log_phi)]
+    if finite_vals.size == 0:
+        vmin, vmax = -30.0, 0.0
+    else:
+        vmin = float(np.nanmin(finite_vals))
+        vmax = float(np.nanmax(finite_vals))
+    if vmax - vmin < 1e-10:
+        vmax = vmin + 1.0
     levels = np.linspace(vmin, vmax, n_levels)
 
     # Meshgrid for contour: x = pitch angle, y = energy (log-scale)

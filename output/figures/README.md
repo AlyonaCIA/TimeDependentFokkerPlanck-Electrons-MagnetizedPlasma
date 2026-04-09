@@ -115,6 +115,76 @@ uv run python scripts/python/plot_2d_contours.py \
 
 ---
 
+## 04 — LP88 Contour Plots (Simulation Data — After Propagation, t=2)
+
+![LP88 Contours — Real t=2](04_lp88_contours_real_t2.png)
+
+**Script:** `scripts/python/plot_2d_contours.py`
+
+Same format as Figure 03, but at **time index 2** (iteration ~2543) —
+the electron beam has now propagated along the loop and the distribution
+has reached a quasi-steady state with full spatial structure.
+
+**What we observe:**
+- **Panel $s = 0.0$ Mm (injection point):** The distribution retains
+  its isotropic, power-law character across all energies ($\log_{10} f$
+  ranges from $\sim -0.3$ at low E to $\sim -9$ at MeV energies).
+  This is the continuously injected source.
+- **Panel $s = 2.3$ Mm:** The first signs of pitch-angle anisotropy
+  appear — backward-traveling electrons ($\theta > 120°$) are depleted
+  at high energies ($E > 300$ keV), while forward-directed electrons
+  maintain higher flux.  Coulomb collisions have begun energy-degrading
+  the lower-energy population.
+- **Panel $s = 5.0$ Mm (loop midpoint):** Dramatic anisotropy at
+  $E > 100$ keV — the distribution drops by 10+ orders of magnitude
+  between $\theta = 0°$ (forward) and $\theta = 180°$ (backward).
+  Only the most energetic forward-beamed electrons penetrate to this
+  depth, consistent with the LP88 prediction.
+- **Panels $s = 7.3$–$10.0$ Mm:** The low-energy population
+  ($E < 30$ keV) appears isotropic and occupies the brightest contour
+  levels, indicating thermalised electrons.  High energies show a
+  strong forward-backward asymmetry, with backward-hemisphere flux
+  ($\theta > 90°$) approaching the floor ($\log_{10} f < -25$).
+
+This time step demonstrates the **full Fokker-Planck transport
+physics**: energy loss, pitch-angle scattering, and spatial propagation
+acting simultaneously on the electron beam.
+
+**Regenerate:**
+```bash
+uv run python scripts/python/plot_2d_contours.py \
+    --data experiments/conf_original/fkrplk.test --time-index 2 \
+    --save output/figures/04_lp88_contours_real_t2.png
+```
+
+---
+
+## 05 — LP88 Contour Plots (Simulation Data — Early Propagation, t=1)
+
+![LP88 Contours — Real t=1](05_lp88_contours_real_t1.png)
+
+**Script:** `scripts/python/plot_2d_contours.py`
+
+Same format at **time index 1** (iteration ~809) — an earlier snapshot
+during beam propagation.
+
+**What we observe:**
+- The overall structure is very similar to Figure 04 (t=2), confirming
+  that the simulation has already reached quasi-steady state by this
+  time step.
+- The injected beam at $s = 0$ and the progressive depletion at
+  larger depths are consistent across both snapshots, demonstrating
+  temporal convergence of the Fokker-Planck solution.
+
+**Regenerate:**
+```bash
+uv run python scripts/python/plot_2d_contours.py \
+    --data experiments/conf_original/fkrplk.test --time-index 1 \
+    --save output/figures/05_lp88_contours_real_t1.png
+```
+
+---
+
 ## How to regenerate all figures
 
 ```bash
@@ -128,4 +198,12 @@ uv run python scripts/python/plot_2d_contours.py \
 uv run python scripts/python/plot_2d_contours.py \
     --data experiments/conf_original/fkrplk.test --time-index 0 \
     --save output/figures/03_lp88_contours_real.png
+
+uv run python scripts/python/plot_2d_contours.py \
+    --data experiments/conf_original/fkrplk.test --time-index 2 \
+    --save output/figures/04_lp88_contours_real_t2.png
+
+uv run python scripts/python/plot_2d_contours.py \
+    --data experiments/conf_original/fkrplk.test --time-index 1 \
+    --save output/figures/05_lp88_contours_real_t1.png
 ```
