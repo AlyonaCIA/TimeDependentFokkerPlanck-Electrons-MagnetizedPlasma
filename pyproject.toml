@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Time-Dependent Fokker-Planck solver for electrons in magnetized plasma"
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "MIT" }
+license = { file = "LICENSE" }
 dependencies = [
     "numpy>=1.24",
     "matplotlib>=3.7",

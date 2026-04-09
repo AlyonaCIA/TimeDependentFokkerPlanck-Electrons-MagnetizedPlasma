@@ -1,0 +1,71 @@
+Dual License — Academic & Non-Commercial / Commercial
+======================================================
+
+Copyright (c) 2021 Alyona Carolina Ivanova Araujo.
+All rights reserved.
+
+
+1. ACADEMIC & NON-COMMERCIAL LICENSE
+-------------------------------------
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to use, copy, modify, and distribute the Software for non-commercial
+purposes only, including but not limited to:
+
+  - Academic research
+  - Educational use (university courses, student projects, theses)
+  - Non-profit scientific investigations
+  - Personal, non-commercial experimentation
+
+subject to the following conditions:
+
+  a) The above copyright notice and this license shall be included in all
+     copies or substantial portions of the Software.
+
+  b) Any academic publication, thesis, or report using this Software or
+     results derived from it must cite the following works:
+
+       Hamilton, R. J., Lu, E. T. & Petrosian, V. (1990).
+       "Numerical Solution of the Time-Dependent Kinetic Equation for
+       Electrons in Magnetized Plasma."
+       The Astrophysical Journal, 354, 726.
+
+       Leach, J. & Petrosian, V. (1981).
+       "Impulsive Phase of Solar Flares. I. Characteristics of High
+       Energy Electrons."
+       The Astrophysical Journal, 251, 781.
+
+  c) Redistributions must retain this license and may not be used for
+     commercial purposes.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+
+2. COMMERCIAL LICENSE
+----------------------
+
+For any use of this Software that does not fall under Section 1 above —
+including but not limited to commercial products, proprietary applications,
+revenue-generating services, or integration into commercial software — a
+separate commercial license must be obtained from the copyright holder.
+
+To inquire about commercial licensing, please contact:
+
+  Alyona Carolina Ivanova Araujo
+  Email: alenacivanovaa@gmail.com
+
+
+3. ORIGINAL CODE ACKNOWLEDGMENT
+---------------------------------
+
+The Fortran numerical core of this Software was originally developed by
+R. Hamilton, E. Lu, and V. Petrosian (Hamilton, Lu & Petrosian 1990,
+ApJ 354, 726) and subsequently modified by J. McTiernan and L. Ofman.
+The original authors retain all rights to their respective contributions.
