@@ -185,6 +185,50 @@ uv run python scripts/python/plot_2d_contours.py \
 
 ---
 
+## 06 — Time-Evolution of Electron Density
+
+![Density Evolution](06_density_evolution.png)
+
+**Script:** `scripts/python/plot_density_evolution.py`
+
+Macroscopic electron density $n_e(s, t)$ obtained by integrating the
+distribution function over energy and pitch-angle:
+
+$$n_e(s, t) = \int_{E_{\min}}^{E_{\max}} \int_{-1}^{1} f(E, \mu, s, t)\, d\mu\, dE$$
+
+Each line corresponds to a different simulation time step, coloured with
+the **viridis** colourmap from early (dark purple) to late (yellow).
+
+**What we observe:**
+- **t[0] — initial injection (dark purple):** The electron density is
+  strongly concentrated near the injection point ($s = 0$).  The beam
+  profile shows a steep exponential decay — only the lowest-energy
+  electrons have their phase-space filled, and the density plummets
+  by ~40 orders of magnitude between $s = 0$ and $s = 5$ Mm.
+- **t[1]–t[2] — beam propagation (blue/green):** The beam has
+  spread across the full coronal loop.  Density at the injection point
+  is the highest ($n_e \sim 10$), but now electrons populate all spatial
+  positions with $n_e \sim 10^{-2}$–$10^{-4}$ at the far footpoint.
+  The gentle slope reflects Coulomb-loss equilibrium, where injection
+  balances energy loss.
+- **t[3] — late decay (yellow):** The distribution has decayed to
+  $\sim 10^{-10}$ everywhere.  The nearly flat profile shows that
+  residual electrons are uniformly thermalised along the loop — the
+  beam has been fully absorbed.
+
+This figure captures the **macroscopic consequence** of the Fokker-Planck
+transport: the transition from a localised injection to a loop-filling
+electron population, and finally to dissipation.
+
+**Regenerate:**
+```bash
+uv run python scripts/python/plot_density_evolution.py \
+    --data experiments/conf_original/fkrplk.test \
+    --save output/figures/06_density_evolution.png
+```
+
+---
+
 ## How to regenerate all figures
 
 ```bash
@@ -206,4 +250,8 @@ uv run python scripts/python/plot_2d_contours.py \
 uv run python scripts/python/plot_2d_contours.py \
     --data experiments/conf_original/fkrplk.test --time-index 1 \
     --save output/figures/05_lp88_contours_real_t1.png
+
+uv run python scripts/python/plot_density_evolution.py \
+    --data experiments/conf_original/fkrplk.test \
+    --save output/figures/06_density_evolution.png
 ```
