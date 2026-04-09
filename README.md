@@ -41,7 +41,7 @@
 
 This project implements a **time-dependent Fokker-Planck (TDFP) solver** that evolves the electron velocity distribution function $f(E, \mu, s, t)$ in a magnetized, fully-ionized hydrogen plasma representative of solar flare coronal loops.
 
-The Fortran numerical core was **originally developed** by **R. Hamilton, E. Lu, and V. Petrosian** (Hamilton, Lu & Petrosian 1990, ApJ 354, 726) and subsequently modified by **J. McTiernan** and **L. Ofman**. This repository contains the codebase associated with a **2021 Master's thesis** in Mathematics at the Pontificia Universidad Javeriana, where the code was used to reproduce and extend the foundational results of **Leach & Petrosian (1981)** (LP81).
+The Fortran numerical core was **originally developed** by **R. Hamilton, E. Lu, and V. Petrosian** (Hamilton, Lu & Petrosian 1990, ApJ 354, 726) and subsequently modified by **J. McTiernan** and **L. Ofman**. This repository contains the codebase associated with a **2021 Bachelor's thesis** in Mathematics at the Pontificia Universidad Javeriana, where the code was used to reproduce and extend the foundational results of **Leach & Petrosian (1981)** (LP81).
 
 > **Note:** This thesis was originally completed in 2021. The repository is being uploaded to GitHub in 2025 for archival, reproducibility, and long-term maintenance purposes.
 
@@ -481,7 +481,7 @@ See [LICENSE](LICENSE) for full terms.
 
 **Alyona Carolina Ivanova Araujo**
 
-Master's Thesis in Mathematics — Pontificia Universidad Javeriana, 2021
+Bachelor's Thesis in Mathematics — Pontificia Universidad Javeriana, 2021
 
 **Email:** alenacivanovaa@gmail.com
 **GitHub:** [@AlyonaCIA](https://github.com/AlyonaCIA)
