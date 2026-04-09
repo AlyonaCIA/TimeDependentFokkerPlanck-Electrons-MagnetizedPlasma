@@ -1,7 +1,7 @@
 <p align="center">
   <h1 align="center">TDFP — Time-Dependent Fokker-Planck Solver<br>for Electrons in Magnetized Plasma</h1>
   <p align="center"><strong>Numerical solution of the relativistic, time-dependent Fokker-Planck kinetic equation for energetic electrons propagating along converging magnetic loops in solar flares.</strong></p>
-  <p align="center">Master's thesis in Mathematics — Pontificia Universidad Javeriana, 2021</p>
+  <p align="center">Bachelor's thesis in Mathematics — Pontificia Universidad Javeriana, 2021</p>
 </p>
 
 <p align="center">
