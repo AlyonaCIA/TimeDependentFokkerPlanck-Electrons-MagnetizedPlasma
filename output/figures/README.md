@@ -229,6 +229,53 @@ uv run python scripts/python/plot_density_evolution.py \
 
 ---
 
+## 07 — Energy Spectrum Cooling
+
+![Energy Spectrum](07_energy_spectrum.png)
+
+**Script:** `scripts/python/plot_energy_spectrum.py`
+
+Total energy spectrum obtained by integrating the distribution function
+over pitch-angle and space:
+
+$$F(E, t) = \int_0^L \int_{-1}^{1} f(E, \mu, s, t)\, d\mu\, ds$$
+
+Each line corresponds to a different simulation time step, coloured with
+the **viridis** colourmap from early (dark purple) to late (yellow).
+
+**What we observe:**
+- **t[0] — initial injection (dark purple):** The spectrum follows a
+  power-law $F(E) \propto E^{-\delta}$ from 10 keV to ~1 MeV with
+  $\delta \approx 4$–5, set by the injection model.  At this early
+  stage only the region near the injection point contributes.
+- **t[1]–t[2] — beam propagation (blue/green):** The total flux rises
+  by ~2 orders of magnitude as electrons fill the full loop.  The
+  power-law slope remains roughly constant, confirming steady-state
+  injection.  The t[1] and t[2] curves nearly overlap, indicating the
+  system has reached quasi-steady state.
+- **t[3] — collisional cooling (yellow):** The spectrum has dropped by
+  ~10 orders of magnitude overall.  Crucially, the **slope steepens
+  dramatically** above ~50 keV — the high-energy tail falls off far
+  more steeply than at earlier times.  This is the hallmark of
+  **Coulomb collisional cooling**: the collision rate scales as
+  $\nu \propto E^{-3/2}$, so lower-energy electrons thermalise first,
+  but the integrated spectrum steepens because the injected population
+  has been consumed.
+
+Comparing this figure with Figure 06 (density evolution) provides
+complementary views: Figure 06 shows *where* electrons are, while
+this figure shows *how energetic* they are — together they fully
+characterise the Fokker-Planck transport.
+
+**Regenerate:**
+```bash
+uv run python scripts/python/plot_energy_spectrum.py \
+    --data experiments/conf_original/fkrplk.test \
+    --save output/figures/07_energy_spectrum.png
+```
+
+---
+
 ## How to regenerate all figures
 
 ```bash
@@ -254,4 +301,8 @@ uv run python scripts/python/plot_2d_contours.py \
 uv run python scripts/python/plot_density_evolution.py \
     --data experiments/conf_original/fkrplk.test \
     --save output/figures/06_density_evolution.png
+
+uv run python scripts/python/plot_energy_spectrum.py \
+    --data experiments/conf_original/fkrplk.test \
+    --save output/figures/07_energy_spectrum.png
 ```
