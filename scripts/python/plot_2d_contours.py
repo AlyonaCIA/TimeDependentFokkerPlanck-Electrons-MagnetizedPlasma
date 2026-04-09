@@ -176,6 +176,10 @@ def plot_lp88_contours(
         squeeze=False,
         constrained_layout=True,
     )
+    fig.suptitle(
+        r"LP88 Contours — $\log_{10}\,f(E,\,\mu)$",
+        fontsize=16, fontweight="bold", y=1.02,
+    )
     axes_flat = axes.ravel()
 
     # Shared contour levels across all panels
@@ -215,6 +219,9 @@ def plot_lp88_contours(
         ax.set_xlabel("Pitch Angle  (degrees)", fontsize=12)
         ax.set_ylabel("Energy  (keV)", fontsize=12)
 
+        # Subtle grid for readability
+        ax.grid(True, which="major", ls=":", lw=0.4, color="white", alpha=0.25)
+
         # Panel label
         ax.text(
             0.03, 0.95,
@@ -238,7 +245,7 @@ def plot_lp88_contours(
     cbar.ax.tick_params(labelsize=11)
 
     if save:
-        fig.savefig(save, dpi=250, bbox_inches="tight", facecolor="white")
+        fig.savefig(save, dpi=300, bbox_inches="tight", facecolor="white")
         print(f"Saved: {save}")
         plt.close(fig)
     else:

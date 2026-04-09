@@ -273,6 +273,15 @@ def render_coronal_loop(
         smooth_shading=True, ambient=0.4,
     )
 
+    # Title text
+    pl.add_text(
+        "Coronal Loop — Electron Density",
+        position="upper_left",
+        font_size=14,
+        color="white",
+        shadow=True,
+    )
+
     # Camera: slightly elevated, looking at apex
     pl.camera_position = [
         (0.0, -R * 3.2, R * 1.4),
@@ -329,8 +338,8 @@ def _build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--resolution",
         type=str,
-        default="1920x1080",
-        help="Window size as WxH (default: 1920x1080).",
+        default="2560x1440",
+        help="Window size as WxH (default: 2560x1440).",
     )
     return parser
 

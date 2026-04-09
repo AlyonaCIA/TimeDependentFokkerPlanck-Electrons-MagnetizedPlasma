@@ -167,7 +167,9 @@ src/fortran/fkrplk.x
 
 # ==============================================================================
 # Simulation output (large ASCII data files)
+# Keep output/figures/ tracked for publication-quality plots.
 # ==============================================================================
-output/
+output/*
+!output/figures/
 fkrplk.conf2_E10kev10Mev
 *.DS_Store
