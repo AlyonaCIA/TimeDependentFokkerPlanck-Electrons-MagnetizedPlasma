@@ -309,4 +309,52 @@ uv run python scripts/python/plot_energy_spectrum.py \
 uv run python scripts/python/plot_3d_xray_loop.py \
     --data experiments/conf_original/fkrplk.test --time-index 2 \
     --save output/figures/08_xray_coronal_loop.png
+
+uv run python scripts/python/plot_dynamic_spectrogram.py \
+    --data experiments/conf_original/fkrplk.test \
+    --save output/figures/09_dynamic_spectrogram.png
+```
+
+---
+
+## 09 — Dynamic HXR Spectrogram — Soft-Hard-Soft Evolution
+
+![Dynamic Spectrogram](09_dynamic_spectrogram.png)
+
+**Script:** `scripts/python/plot_dynamic_spectrogram.py`
+
+A 2-D dynamic spectrogram of the Hard X-ray photon flux
+$J(\varepsilon, t)$ computed via thin-target bremsstrahlung:
+
+$$J(\varepsilon, t) \propto \frac{n_{\mathrm{bg}}}{\varepsilon} \int_{\varepsilon}^{E_{\max}} \frac{1}{E} \int_0^L \int_{-1}^{1} f(E,\mu,s,t)\, d\mu\, ds\, dE$$
+
+The X-axis is time, the Y-axis is photon energy (log scale), and the
+colour intensity encodes the photon flux on a logarithmic scale
+(`inferno` colourmap).  The cyan dashed line overlays the fitted
+**spectral index** $\gamma(t)$, obtained by fitting
+$J(\varepsilon) \propto \varepsilon^{-\gamma}$ in the 20–200 keV band.
+
+**What we observe:**
+- **Soft-Hard-Soft (SHS) pattern:** The spectral index $\gamma$ drops
+  (spectrum hardens) during the impulsive injection phase
+  ($t \approx 0.5$–$1.5$ s), reaching $\gamma \sim 5.3$, then rises
+  steeply as collisional cooling softens the spectrum
+  ($\gamma > 8$ by $t \approx 3$ s).
+- **Impulsive phase ($t < 1.5$ s):** The high-energy emission
+  ($\varepsilon > 100$ keV) is brightest, with the colour gradient
+  extending deep into the yellow–orange range — the beam contains
+  abundant non-thermal electrons above 100 keV.
+- **Decay phase ($t > 2$ s):** The high-energy tail fades first
+  (dark purple/black region expanding downward), while low-energy
+  emission persists — this is the spectral softening.  The colour
+  boundary between bright and faint shifts to lower energies with
+  time, a hallmark of Coulomb collisional energy losses.
+- This is the classic plot format used by RHESSI and Solar Orbiter
+  STIX publications to characterise flare X-ray spectral evolution.
+
+**Regenerate:**
+```bash
+uv run python scripts/python/plot_dynamic_spectrogram.py \
+    --data experiments/conf_original/fkrplk.test \
+    --save output/figures/09_dynamic_spectrogram.png
 ```
