@@ -313,6 +313,10 @@ uv run python scripts/python/plot_3d_xray_loop.py \
 uv run python scripts/python/plot_dynamic_spectrogram.py \
     --data experiments/conf_original/fkrplk.test \
     --save output/figures/09_dynamic_spectrogram.png
+
+uv run python scripts/python/plot_loss_cone.py \
+    --data experiments/conf_original/fkrplk.test --time-index 2 \
+    --save output/figures/10_loss_cone.png
 ```
 
 ---
@@ -357,4 +361,48 @@ $J(\varepsilon) \propto \varepsilon^{-\gamma}$ in the 20–200 keV band.
 uv run python scripts/python/plot_dynamic_spectrogram.py \
     --data experiments/conf_original/fkrplk.test \
     --save output/figures/09_dynamic_spectrogram.png
+```
+
+---
+
+## 10 — Loss-Cone Phase-Space Diagram
+
+![Loss Cone](10_loss_cone.png)
+
+**Script:** `scripts/python/plot_loss_cone.py`
+
+A filled contour plot of $\log_{10} f(E, \mu)$ in the pitch-angle cosine
+vs. energy plane, with the **loss-cone boundary** overlaid:
+
+$$\mu_{\mathrm{loss}}(s) = \pm\sqrt{1 - \frac{B(s)}{B_{\max}}}$$
+
+Electrons with $|\mu| > \mu_{\mathrm{loss}}$ stream freely to the
+chromospheric footpoints — they are **lost** (precipitate).  Electrons
+with $|\mu| < \mu_{\mathrm{loss}}$ are magnetically mirrored and remain
+**trapped** in the corona.
+
+**What we observe:**
+- At the loop apex ($s = 0$, $B = B_{\min}$), the loss cone is widest
+  ($\mu_c = 0.707$ for mirror ratio $r_m = 2$), with cyan dashed lines
+  at $\mu = \pm 0.707$.
+- The hatched grey regions mark the loss cone — particles here precipitate.
+- The `magma` colourmap shows the distribution spanning $\sim 10$ orders
+  of magnitude: bright (high $f$) at low energies, fading at high energies.
+- The distribution is approximately isotropic in $\mu$ at the injection
+  point, consistent with an isotropic power-law injection model.
+- The **multi-panel mode** (`--panels`) shows how the loss cone narrows
+  with depth as $B(s)$ increases toward $B_{\max}$: at the footpoint
+  ($s = L$, $B = B_{\max}$), $\mu_c = 0$ and all particles are lost.
+
+**Regenerate:**
+```bash
+# Single panel (loop apex):
+uv run python scripts/python/plot_loss_cone.py \
+    --data experiments/conf_original/fkrplk.test --time-index 2 \
+    --save output/figures/10_loss_cone.png
+
+# Multi-panel (5 positions along the loop):
+uv run python scripts/python/plot_loss_cone.py \
+    --data experiments/conf_original/fkrplk.test --time-index 2 \
+    --panels --save output/figures/10b_loss_cone_panels.png
 ```
