@@ -305,4 +305,8 @@ uv run python scripts/python/plot_density_evolution.py \
 uv run python scripts/python/plot_energy_spectrum.py \
     --data experiments/conf_original/fkrplk.test \
     --save output/figures/07_energy_spectrum.png
+
+uv run python scripts/python/plot_3d_xray_loop.py \
+    --data experiments/conf_original/fkrplk.test --time-index 2 \
+    --save output/figures/08_xray_coronal_loop.png
 ```
